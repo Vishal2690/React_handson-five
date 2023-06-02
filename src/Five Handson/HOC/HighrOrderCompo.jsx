@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
 
-const HighrOrderCompo = (WrapedComponent) => {
-  function HocFunction() {
-    const [Counter, setCounter] = useState(0)
-    const myFunction = () => {
-      setCounter(Counter + 1);
+const HighrOrderCompo = (RealComponent) => {
+  const NewComponent = () => {
+    const [Add, setAdd] = useState(0);
+    const incrementFun = () => {
+      setAdd(Add + 1);
     }
-
-    return (
-      <div>
-        <WrapedComponent Counter={Counter} updateCounter={myFunction} />
-      </div>
-    )
+    return <RealComponent Add={Add} incrementFun={incrementFun} />
+    
   }
-    return HocFunction
-  }
+  return NewComponent;
 
-  export default HighrOrderCompo
+  
+}
+
+export default HighrOrderCompo

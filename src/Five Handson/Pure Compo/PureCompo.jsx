@@ -1,17 +1,28 @@
-import React, { useState } from 'react'
+import { PureComponent } from "react";
 
-function PureCompo() {
-  const [Add, setAdd] = useState(0);
+class PureCompo extends PureComponent{
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
 
-  return (
-    <div className='main'>
-    
-      <div style={{ marginTop:'100px'}}>
-      <h1 >Decrease : {Add}</h1>
-        <button onClick={() => setAdd(Add - 1)}>ClickMe..!</button>
-        </div>
-    </div>
-  )
+  incrementCount = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }));
+  };
+
+  render() {
+    const { count } = this.state;
+
+    return (
+      <div className="pure">
+        
+        <button onClick={this.incrementCount}>Increment : <h2>{count}</h2></button>
+      </div>
+    );
+  }
 }
-
-export default PureCompo
+export default PureCompo;

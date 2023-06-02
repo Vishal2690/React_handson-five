@@ -1,17 +1,22 @@
 import React from 'react'
+import ClickCounterCompo from './Five Handson/HOC/ClickCounterCompo'
+import HoverCounterCompo from './Five Handson/HOC/HoverCounterCompo'
 import PureCompo from './Five Handson/Pure Compo/PureCompo'
-import ChildCompo from './Five Handson/HOC/ChildCompo'
-import './App.css'
 
 const App = () => {
   return (
-    <div>
-    
-    <ChildCompo/>
-    <PureCompo/>
-      
-    
-    </div>
+    <>
+    <h2 style={{textAlign:"center"}}>Higher Order Component</h2>
+      <div className='HOC'>
+        <ClickCounterCompo />
+        <HoverCounterCompo />
+      </div>
+      <hr/>
+      <div className='PURE'>
+        <h2>Pure Component</h2>
+        <PureCompo />
+      </div>
+    </>
   )
 }
 
